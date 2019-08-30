@@ -22,7 +22,8 @@ AuthorSchema
 AuthorSchema
   .virtual('lifespan')
   .get(function () {
-    return (this.date_of_death.getYear() - this.date_of_birth.getYear());
+    let dt = new Date();
+    return (this.date_of_birth ? (this.date_of_death? this.date_of_death.getYear() - this.date_of_birth.getYear() : dt.getYear() - this.date_of_birth.getYear()) : '');
   });
 
 AuthorSchema
@@ -34,13 +35,13 @@ AuthorSchema
 AuthorSchema
   .virtual('date_of_birth_formatted')
   .get(function () {
-    return this.date_of_birth ? moment(this.date_of_birth).format('YYYY-MM-DD') : '';
+    return this.date_of_birth ? moment(this.date_of_birth).format('MMMM Do, YYYY') : '';
   });
 
 AuthorSchema
   .virtual('date_of_death_formatted')
   .get(function () {
-    return this.date_of_death ? moment(this.date_of_death).format('YYYY-MM-DD') : '';
+    return this.date_of_death ? moment(this.date_of_death).format('MMMM Do, YYYY') : '';
   });
 
 
