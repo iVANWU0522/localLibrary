@@ -1,14 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
 
-var app = express();
+const app = express();
 
 const mongoose = require('mongoose');
 const mongoDB = 'mongodb+srv://admin:admin@locallibrary-dmqe1.mongodb.net/local_library?retryWrites=true&w=majority';
