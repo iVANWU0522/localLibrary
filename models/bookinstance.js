@@ -20,11 +20,11 @@ BookInstanceSchema
   .get(function () {
     return '/catalog/bookinstance/' + this._id;
   });
-  
+
 BookInstanceSchema
-  .virtual('due_back_formatted')
+  .virtual('due_back_yyyy_mm_dd')
   .get(function () {
-    return moment(this.due_back).format('MMMM Do, YYYY');
+    return moment(this.due_back).format('YYYY-MM-DD');
   });
 
 module.exports = mongoose.model('BookInstance', BookInstanceSchema);
